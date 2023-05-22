@@ -1,5 +1,6 @@
 class Song
     attr_accessor :name, :artist, :genre
+    # Class variables
     @@count = 0
     @@artists = []
     @@genres = []
@@ -7,13 +8,16 @@ class Song
       @name = name
       @artist = artist
       @genre = genre
+      # Increment song count
       @@count += 1
+      # Store genre and artist in respective arrays
       @@genres << genre
       @@artists << artist
     end
     def self.count
       @@count
     end
+    # Return unique artists from the artists array
     def self.artists
       @@artists.uniq
     end
@@ -33,6 +37,7 @@ class Song
     end
     def self.genre_count
       genre_count = {}
+      # Count occurrences of each genre
       @@genres.each do |genre|
         if genre_count[genre]
           genre_count[genre] += 1 
